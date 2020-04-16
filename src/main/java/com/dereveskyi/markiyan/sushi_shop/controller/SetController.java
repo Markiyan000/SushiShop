@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/sets")
+@CrossOrigin
 public class SetController {
 
     @Autowired

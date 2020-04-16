@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SushiShop</title>
+    <meta charset="UTF-8">
+    <link href="https://assets3.insales.ru/assets/1/5347/1217763/1561988367/theme.css" rel="stylesheet" type="text/css" />
+    <link href="https://assets3.insales.ru/assets/1/5347/1217763/1561988367/ie.css" rel="stylesheet" type="text/css" />
+    <link href="//fonts.googleapis.com/css?family=Open+Sans&subset=cyrillic,latin" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Exo+2&subset=cyrillic,latin" rel="stylesheet" />
+    <link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" crossorigin="anonymous" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="alternate" type="application/rss+xml" title="Блог" href="/blogs/blog.atom" />
+    <link rel="icon" type="image/png" sizes="16x16" href="https://assets3.insales.ru/assets/1/5347/1217763/v_1561988367/favicon.png" />
+    <script src="https://assets3.insales.ru/assets/1/5347/1217763/1561988367/modernizr-custom.js"></script>
+</head>
+<body>
+    <div class="collection-menu-horizontal-wrapper">
+        <div class="container">
+            <ul class="collection-menu-horizontal list js-edge-calc text-center-xl">
+                <li class="list-item menu-item text-left-xl  dropdown is-absolute " data-handle="rolly">
+                    <a title="Rolls" class="menu-link" onclick="showList('rolls')">
+                        <span class="link-text">Rolls</span>
+                        <i class="dropdown-icon ion ion-ios-arrow-down"></i>
+                    </a>
+                </li>
+                <li class="list-item menu-item text-left-xl "onclick="showList('sets')" data-handle="sety">
+                    <a title="Sets" class="menu-link">
+                        <span class="link-text">Sets</span>
+                    </a>
+                </li>
+                <li class="list-item menu-item text-left-xl  dropdown is-absolute " data-handle="sushi">
+                    <a title="Sushi" onclick="showList('sushi')" class="menu-link">
+                        <span class="link-text">Sushi</span>
+                        <i class="dropdown-icon ion ion-ios-arrow-down"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <div class="collection container">
+        <div class="row">
+
+        </div>
+    </div>
+    <script src="foodController.js"></script>
+</body>
+</html>

@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/rolls")
+@CrossOrigin
 public class RollController {
 
     @Autowired
