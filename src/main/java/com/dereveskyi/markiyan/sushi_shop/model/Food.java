@@ -17,6 +17,9 @@ public abstract class Food {
     @Column(name = "price")
     protected Integer price;
 
+    @Column(name = "image")
+    protected String image;
+
     public Food() {
 
     }
@@ -51,5 +54,13 @@ public abstract class Food {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
