@@ -18,8 +18,8 @@ public class SushiController {
     SushiService sushiService;
 
     @GetMapping("")
-    public ResponseEntity<?> findAll() {
-        return new ResponseEntity<>(sushiService.findAll(), HttpStatus.OK);
+    public ResponseEntity<?> findAll(@RequestParam(required = false, defaultValue = "id") String sortBy) {
+        return new ResponseEntity<>(sushiService.findAll(sortBy), HttpStatus.OK);
     }
 
     @GetMapping("/{sushiId}")

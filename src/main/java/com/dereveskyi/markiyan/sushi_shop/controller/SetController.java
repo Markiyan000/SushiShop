@@ -1,7 +1,7 @@
 package com.dereveskyi.markiyan.sushi_shop.controller;
 
-import com.dereveskyi.markiyan.sushi_shop.dao.SetRepository;
 import com.dereveskyi.markiyan.sushi_shop.model.Set;
+import com.dereveskyi.markiyan.sushi_shop.service.SetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,23 +15,23 @@ import java.util.Optional;
 public class SetController {
 
     @Autowired
-    SetRepository setRepository;
+    SetService setService;
 
     @GetMapping("")
-    public ResponseEntity<?> findAll() {
-        return new ResponseEntity<>(setRepository.findAll(), HttpStatus.OK);
+    public ResponseEntity<?> findAll(@RequestParam(required = false, defaultValue = "id") String sortBy) {
+        return new ResponseEntity<>(setService.findAll(sortBy), HttpStatus.OK);
     }
 
     @GetMapping("/{setId}")
     public ResponseEntity<?> findById(@PathVariable("setId") String setId) {
-        Optional<Set> optionalSet = setRepository.findById(Long.parseLong(setId));
+        Optional<Set> optionalSet = setService.findById(Long.parseLong(setId));
         Set foundSet = optionalSet.get();
         return new ResponseEntity<>(foundSet, HttpStatus.OK);
     }
 
     @DeleteMapping("/{setId}")
     public ResponseEntity<?> delete(@PathVariable("setId") String setId) {
-        setRepository.deleteById(Long.parseLong(setId));
+        setService.delete(Long.parseLong(setId));
         return new ResponseEntity<>("Sushi with ID ---> " + setId + " <--- was deleted successfully!", HttpStatus.OK);
     }
 }

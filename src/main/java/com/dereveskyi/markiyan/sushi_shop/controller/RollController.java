@@ -18,8 +18,8 @@ public class RollController {
     RollService rollService;
 
     @GetMapping("")
-    public ResponseEntity<?> findAll() {
-        return new ResponseEntity<>(rollService.findAll(), HttpStatus.OK);
+    public ResponseEntity<?> findAll(@RequestParam(required = false, defaultValue = "id") String sortBy) {
+        return new ResponseEntity<>(rollService.findAll(sortBy), HttpStatus.OK);
     }
 
     @GetMapping("/{rollId}")

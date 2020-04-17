@@ -18,22 +18,22 @@ let showOneItem = async(id, name) => {
     const resultInJson = response.json();
     const div = document.getElementById('productItem');
     await resultInJson.then((data) => {
-        const result = itemTemplate(data);
+        const result = itemTemplate(data, name);
         clearElementsBeforeInserting();
         div.insertAdjacentHTML('beforeend', result);
     });
     
 };
 
-let itemTemplate = (item) => {
-    return `
+let itemTemplate = (item, name) => {
+    let result = `
     <div>
           <img src="http://localhost:63342/SushiShop/client/images/${item.image}" alt="Нигири с лососем" title="${item.name}" class="product-image">
           <div class="product-title on-page"><h1 class="js-product-title">${item.name}</h1></div>
           <div class="product-introtext on-page">
                 <p>
                     <span>${item.description}</span><br>
-                    Weight: <span>${item.weight}</span>
+                    Weight: <span>${item.weight} g.</span>
                 </p>
           </div>
           <div class="product-prices on-page">
@@ -47,12 +47,35 @@ let itemTemplate = (item) => {
                     </button>
                 </div>
           </div>
+          <br><br>
     </div>
     `;
+    if(name === 'sets') {
+        result += `
+           <div class="tabs-list product-tabs-list">
+                <div id="product-characteristics" class="tab-block active ">
+                        <div class="editor with-styled-table">
+                                <table class="table properties-table table-bordered table-striped table-hover">
+                                     <tr>
+                                        <td>Weight</td>
+                                        <td><span class="property-value">${item.weight}</span> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Composition</td>
+                                        <td><span class="property-value">${item.ingredients}</span></td>
+                                    </tr>
+                                </table>
+                        </div>
+                </div>
+           </div>
+  
+        `;
+    }
+    return result;
 };
 
 let listTemplate = (list, name) => {
-    let result = '';
+    let result = ` `;
     for (let i = 0; i < list.length; i++) {
         result += ` 
         <div class="product-card cell-xs-12 cell-sm-6 cell-lg-4 cell-xl-fifth">
