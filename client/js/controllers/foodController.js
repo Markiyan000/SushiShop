@@ -5,21 +5,61 @@ let showList = async (name) => {
     const resultInJson = response.json();
     const div = document.querySelector('.row');
     await resultInJson.then((data) => {
-        const result = listTemplate(data);
-        div.innerHTML = "";
+        const result = listTemplate(data, name);
+        clearElementsBeforeInserting();
         div.insertAdjacentHTML('beforeend', result);
     });
 };
 
-let listTemplate = (list) => {
+let showOneItem = async(id, name) => {
+    const response = await fetch(`http://localhost:3000/api/${name}/${id}`, {
+        method: 'GET'
+    });
+    const resultInJson = response.json();
+    const div = document.getElementById('productItem');
+    await resultInJson.then((data) => {
+        const result = itemTemplate(data);
+        clearElementsBeforeInserting();
+        div.insertAdjacentHTML('beforeend', result);
+    });
+    
+};
+
+let itemTemplate = (item) => {
+    return `
+    <div>
+          <img src="http://localhost:63342/SushiShop/client/images/${item.image}" alt="Нигири с лососем" title="${item.name}" class="product-image">
+          <div class="product-title on-page"><h1 class="js-product-title">${item.name}</h1></div>
+          <div class="product-introtext on-page">
+                <p>
+                    <span>${item.description}</span><br>
+                    Weight: <span>${item.weight}</span>
+                </p>
+          </div>
+          <div class="product-prices on-page">
+                <div class="price js-product-price">${item.price} $</div>
+          </div>
+          <div class="buy cell-xl-4 cell-lg-6 cell-sm-4 cell-xs-12">
+                <div class="product-order-variant js-variant-available">
+                    <button class="button button-buy button-primary" type="submit" data-item-add>
+                         <i class="icon button-icon buy-icon ion-ios-cart-outline"></i>
+                         <span class="button-text">Add To Cart</span>
+                    </button>
+                </div>
+          </div>
+    </div>
+    `;
+};
+
+let listTemplate = (list, name) => {
     let result = '';
     for (let i = 0; i < list.length; i++) {
         result += ` 
         <div class="product-card cell-xs-12 cell-sm-6 cell-lg-4 cell-xl-fifth">
             <div class="card-inner">
                 <div class="product-photo">
-                    <a  title=${list[i].name} class="product-link with-object-fit">
-                        <img src="http://localhost:63342/SushiShop/client/images/${list[i].image}" alt="" title="" class="product-image">
+                    <a title=${list[i].name} class="product-link with-object-fit">
+                        <img src="http://localhost:63342/SushiShop/client/images/${list[i].image}" onclick="showOneItem(${list[i].id}, '${name}')" class="product-image" alt="">
                     </a>
                     <div class="product-labels labels-list">
                         <span class="js-label-discount"></span>
@@ -27,7 +67,7 @@ let listTemplate = (list) => {
                 </div>
                 <div class="product-caption">
                     <div class="product-title">
-                        <a href="/product/set-segun" class="product-link">
+                        <a class="product-link">
                             ${list[i].name}
                         </a>
                     </div>
@@ -38,3 +78,10 @@ let listTemplate = (list) => {
     }
     return result;
 };
+
+let clearElementsBeforeInserting = () => {
+    document.querySelector('.row').innerHTML = "";
+    document.getElementById('productItem').innerHTML = "";
+};
+
+
