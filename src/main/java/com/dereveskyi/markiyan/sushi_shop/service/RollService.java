@@ -24,4 +24,8 @@ public class RollService {
     public void delete(Long rollId) {
         rollRepository.deleteById(rollId);
     }
+
+    public Iterable<Roll> findByName(String searchName) {
+        return rollRepository.findByName(searchName);
+    }
 }

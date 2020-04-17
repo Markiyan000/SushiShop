@@ -26,4 +26,8 @@ public class SetService {
     public void delete(Long setId) {
         setRepository.deleteById(setId);
     }
+
+    public Iterable<Set> findByName(String searchName) {
+        return setRepository.findByName(searchName);
+    }
 }

@@ -11,4 +11,6 @@ public interface SetRepository extends PagingAndSortingRepository<Set, Long> {
     Iterable<Set> findAll(Sort sort);
 
     Optional<Set> findById(Long id);
+
+    Iterable<Set> findByName(String searchName);
 }

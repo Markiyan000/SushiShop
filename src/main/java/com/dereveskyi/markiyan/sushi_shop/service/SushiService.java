@@ -25,4 +25,8 @@ public class SushiService {
     public void delete(Long sushiId) {
         sushiRepository.deleteById(sushiId);
     }
+
+    public Iterable<Sushi> findByName(String searchName) {
+        return sushiRepository.findByName(searchName);
+    }
 }

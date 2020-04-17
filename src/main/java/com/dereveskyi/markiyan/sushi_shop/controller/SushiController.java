@@ -17,9 +17,12 @@ public class SushiController {
     @Autowired
     SushiService sushiService;
 
-    @GetMapping("")
-    public ResponseEntity<?> findAll(@RequestParam(required = false, defaultValue = "id") String sortBy) {
-        return new ResponseEntity<>(sushiService.findAll(sortBy), HttpStatus.OK);
+    @GetMapping
+    public ResponseEntity<?> findAll(@RequestParam(required = false, defaultValue = "id") String sortBy,
+                                     @RequestParam String searchName) {
+        if (searchName == null) {
+            return new ResponseEntity<>(sushiService.findAll(sortBy), HttpStatus.OK);
+        } else return new ResponseEntity<>(sushiService.findByName(searchName), HttpStatus.OK);
     }
 
     @GetMapping("/{sushiId}")

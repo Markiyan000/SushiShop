@@ -18,8 +18,11 @@ public class SetController {
     SetService setService;
 
     @GetMapping("")
-    public ResponseEntity<?> findAll(@RequestParam(required = false, defaultValue = "id") String sortBy) {
-        return new ResponseEntity<>(setService.findAll(sortBy), HttpStatus.OK);
+    public ResponseEntity<?> findAll(@RequestParam(required = false, defaultValue = "id") String sortBy,
+                                     @RequestParam String searchName) {
+        if (searchName == null) {
+            return new ResponseEntity<>(setService.findAll(sortBy), HttpStatus.OK);
+        } else return new ResponseEntity<>(setService.findByName(searchName), HttpStatus.OK);
     }
 
     @GetMapping("/{setId}")
