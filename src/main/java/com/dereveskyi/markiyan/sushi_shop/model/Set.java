@@ -10,9 +10,6 @@ public class Set extends Food{
     @Column(name = "size")
     private String size;
 
-    @Column(name = "weight")
-    private Integer weight;
-
     @Column(name = "ingredients")
     private String ingredients;
 
@@ -26,14 +23,6 @@ public class Set extends Food{
 
     public void setSize(String size) {
         this.size = size;
-    }
-
-    public Integer getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Integer weight) {
-        this.weight = weight;
     }
 
     public String getIngredients() {

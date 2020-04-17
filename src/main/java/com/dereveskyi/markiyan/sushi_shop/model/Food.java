@@ -20,6 +20,9 @@ public abstract class Food {
     @Column(name = "image")
     protected String image;
 
+    @Column(name = "weight")
+    protected Integer weight;
+
     public Food() {
 
     }
@@ -62,5 +65,13 @@ public abstract class Food {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Integer getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Integer weight) {
+        this.weight = weight;
     }
 }

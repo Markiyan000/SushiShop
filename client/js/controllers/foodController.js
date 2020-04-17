@@ -19,7 +19,7 @@ let listTemplate = (list) => {
             <div class="card-inner">
                 <div class="product-photo">
                     <a  title=${list[i].name} class="product-link with-object-fit">
-                        <img src=${list[i].image} alt="" title="" class="product-image">
+                        <img src="http://localhost:63342/SushiShop/client/images/${list[i].image}" alt="" title="" class="product-image">
                     </a>
                     <div class="product-labels labels-list">
                         <span class="js-label-discount"></span>

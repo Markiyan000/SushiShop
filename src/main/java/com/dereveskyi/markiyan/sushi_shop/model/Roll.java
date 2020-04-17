@@ -10,9 +10,6 @@ public class Roll extends Food {
     @Column(name = "type")
     private String type;
 
-    @Column(name = "weight")
-    private String weight;
-
     public Roll() {
         super();
     }
@@ -25,11 +22,4 @@ public class Roll extends Food {
         this.type = type;
     }
 
-    public String getWeight() {
-        return weight;
-    }
-
-    public void setWeight(String weight) {
-        this.weight = weight;
-    }
 }
