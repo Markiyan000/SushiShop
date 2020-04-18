@@ -5,7 +5,7 @@ let showList = async (name) => {
     const resultInJson = response.json();
     const div = document.querySelector('.row');
     await resultInJson.then((data) => {
-        const result = listTemplate(data, name);
+        const result = filterTemplate(name) + listTemplate(data, name);
         clearElementsBeforeInserting();
         div.insertAdjacentHTML('beforeend', result);
     });
@@ -38,7 +38,15 @@ let showFoundItemsByName = async (name) => {
     });
 };
 
-let showSortedList = async (name, sortBy) => {
+let showSortedList = async (name) => {
+    let radioButtons = document.getElementsByName('sortBy');
+    let sortBy;
+    for(let elem of radioButtons) {
+        if (elem.checked) {
+            sortBy = elem.value;
+            break;
+        }
+    }
     const response = await fetch(`http://localhost:3000/api/${name}?sortBy=${sortBy}`, {
         method: 'GET'
     });
@@ -102,7 +110,6 @@ let itemTemplate = (item, name) => {
 
 let listTemplate = (list, name) => {
     let result = '';
-    result += searchTemplate(name);
     for (let i = 0; i < list.length; i++) {
         result += `
         <div class="product-card cell-xs-12 cell-sm-6 cell-lg-4 cell-xl-fifth">
@@ -129,21 +136,30 @@ let listTemplate = (list, name) => {
     return result;
 };
 
-let searchTemplate = (name) => {
+let filterTemplate = (name) => {
     return `
-        <div id="searchDiv"> 
+     <div id="searchDiv"> 
             <form action="" id="searchForm">  
                 <input type="search" id="searchInput">
                 <button onclick="showFoundItemsByName('${name}')">
                     <i class="fa fa-search"></i>
                 </button>
             </form>
-        </div>`;
+     </div>
+     <div id="sortDiv">
+        <input type="radio" name="sortBy" value="price">Price<br>
+        <input type="radio" name="sortBy" value="weight">Weight<br> 
+        <input type="radio" name="sortBy" value="name">Name<br>
+        <button type="button" onclick="showSortedList('${name}')">Submit </button><br> 
+     </div>`;
 };
 
 let clearElementsBeforeInserting = () => {
     document.querySelector('.row').innerHTML = "";
     document.getElementById('productItem').innerHTML = "";
 };
+
+
+
 
 
