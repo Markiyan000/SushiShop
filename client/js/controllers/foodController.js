@@ -22,7 +22,33 @@ let showOneItem = async(id, name) => {
         clearElementsBeforeInserting();
         div.insertAdjacentHTML('beforeend', result);
     });
-    
+};
+
+let showFoundItemsByName = async (name) => {
+    const formData = document.getElementById('searchInput').value;
+    const response = await fetch(`http://localhost:3000/api/${name}?searchName=${formData}`, {
+        method: 'GET'
+    });
+    const resultInJson = response.json();
+    const div = document.querySelector('.row');
+    await resultInJson.then((data) => {
+        const result = listTemplate(data, name);
+        clearElementsBeforeInserting();
+        div.insertAdjacentHTML('beforeend', result);
+    });
+};
+
+let showSortedList = async (name, sortBy) => {
+    const response = await fetch(`http://localhost:3000/api/${name}?sortBy=${sortBy}`, {
+        method: 'GET'
+    });
+    const resultInJson = response.json();
+    const div = document.querySelector('.row');
+    await resultInJson.then((data) => {
+        const result = listTemplate(data, name);
+        clearElementsBeforeInserting();
+        div.insertAdjacentHTML('beforeend', result);
+    });
 };
 
 let itemTemplate = (item, name) => {
@@ -75,9 +101,10 @@ let itemTemplate = (item, name) => {
 };
 
 let listTemplate = (list, name) => {
-    let result = ` `;
+    let result = '';
+    result += searchTemplate(name);
     for (let i = 0; i < list.length; i++) {
-        result += ` 
+        result += `
         <div class="product-card cell-xs-12 cell-sm-6 cell-lg-4 cell-xl-fifth">
             <div class="card-inner">
                 <div class="product-photo">
@@ -100,6 +127,18 @@ let listTemplate = (list, name) => {
         </div>`;
     }
     return result;
+};
+
+let searchTemplate = (name) => {
+    return `
+        <div id="searchDiv"> 
+            <form action="" id="searchForm">  
+                <input type="search" id="searchInput">
+                <button onclick="showFoundItemsByName('${name}')">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>`;
 };
 
 let clearElementsBeforeInserting = () => {

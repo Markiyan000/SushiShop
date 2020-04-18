@@ -19,7 +19,7 @@ public class RollController {
 
     @GetMapping("")
     public ResponseEntity<?> findAll(@RequestParam(required = false, defaultValue = "id") String sortBy,
-                                     @RequestParam String searchName) {
+                                     @RequestParam(required = false) String searchName) {
         if (searchName == null) {
             return new ResponseEntity<>(rollService.findAll(sortBy), HttpStatus.OK);
         } else return new ResponseEntity<>(rollService.findByName(searchName), HttpStatus.OK);

@@ -19,10 +19,11 @@ public class SetController {
 
     @GetMapping("")
     public ResponseEntity<?> findAll(@RequestParam(required = false, defaultValue = "id") String sortBy,
-                                     @RequestParam String searchName) {
-        if (searchName == null) {
+                                     @RequestParam(required = false) String searchName) {
+        if(searchName == null) {
             return new ResponseEntity<>(setService.findAll(sortBy), HttpStatus.OK);
-        } else return new ResponseEntity<>(setService.findByName(searchName), HttpStatus.OK);
+        }
+        else return new ResponseEntity<>(setService.findByName(searchName), HttpStatus.OK);
     }
 
     @GetMapping("/{setId}")
