@@ -28,4 +28,8 @@ public class RollService {
     public Iterable<Roll> findByName(String searchName) {
         return rollRepository.findByName(searchName);
     }
+
+    public Iterable<Roll> findByType(String searchType) {
+        return rollRepository.findByType(searchType);
+    }
 }

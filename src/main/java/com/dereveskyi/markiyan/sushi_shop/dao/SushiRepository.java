@@ -14,4 +14,6 @@ public interface SushiRepository extends PagingAndSortingRepository<Sushi, Long>
 
     Iterable<Sushi> findByName(String searchName);
 
+    Iterable<Sushi> findByType(String searchType);
+
 }

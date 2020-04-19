@@ -29,4 +29,8 @@ public class SushiService {
     public Iterable<Sushi> findByName(String searchName) {
         return sushiRepository.findByName(searchName);
     }
+
+    public Iterable<Sushi> findByType(String searchType) {
+        return sushiRepository.findByType(searchType);
+    }
 }

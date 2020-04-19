@@ -13,4 +13,6 @@ public interface RollRepository extends PagingAndSortingRepository<Roll, Long> {
     Optional<Roll> findById(Long id);
 
     Iterable<Roll> findByName(String searchName);
+
+    Iterable<Roll> findByType(String searchType);
 }

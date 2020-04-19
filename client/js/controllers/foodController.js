@@ -59,6 +59,19 @@ let showSortedList = async (name) => {
     });
 };
 
+let showByType = async (name, type) => {
+    const response = await fetch(`http://localhost:3000/api/${name}?searchType=${type}`, {
+        method: 'GET'
+    });
+    const resultInJson = response.json();
+    const div = document.querySelector('.row');
+    await resultInJson.then((data) => {
+        const result = listTemplate(data, name);
+        clearElementsBeforeInserting();
+        div.insertAdjacentHTML('beforeend', result);
+    });
+};
+
 let itemTemplate = (item, name) => {
     let result = `
     <div>
