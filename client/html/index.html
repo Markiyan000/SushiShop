@@ -14,12 +14,25 @@
     <link rel="icon" type="image/png" sizes="16x16" href="https://assets3.insales.ru/assets/1/5347/1217763/v_1561988367/favicon.png" />
     <script src="https://assets3.insales.ru/assets/1/5347/1217763/1561988367/modernizr-custom.js"></script>
     <style>
-        body{
+        body {
             background-color: #07051a;
         }
     </style>
 </head>
 <body>
+
+<header class="main-header container">
+    <div id="nameDiv">
+        SushiShop
+    </div>
+    <div class="shopcart-widget" id="cartDiv">
+        <a title="Cart" class="shopcart-link button button-circle is-primary" onclick="showCart()">
+            <i class="icon shopcart-icon ion-ios-cart-outline"></i>
+            <span class="shopcart-counter js-shopcart-amount"></span>
+        </a>
+    </div>
+</header>
+
     <div class="collection-menu-horizontal-wrapper">
         <div class="container">
             <ul class="collection-menu-horizontal list js-edge-calc text-center-xl">
@@ -72,14 +85,13 @@
             </ul>
         </div>
     </div>
-    <div id="sortDiv">
 
-    </div>
+    <div id="sortDiv"></div>
+
     <br><br><br><br><br><br><br>
-    <div class="collection container">
-        <div id="searchDiv">
 
-        </div>
+    <div class="collection container">
+        <div id="searchDiv"></div>
         <div class="row"></div>
     </div>
 
@@ -92,6 +104,8 @@
             </div>
         </div>
     </div>
+    <div id="totalSum"></div>
+    <table id="table_blur"></table>
 
     <script src="../js/controllers/foodController.js"></script>
     <script src="../js/controllers/cartController.js"></script>
@@ -99,9 +113,14 @@
     <script src="../js/templates/sortTemplate.js"></script>
     <script src="../js/templates/itemTemplate.js"></script>
     <script src="../js/templates/listTemplate.js"></script>
+    <script src="../js/templates/cartTemplate.js"></script>
     <script src="../js/additional/clearElementsBeforeInserting.js"></script>
     <script src="../js/additional/getChosenValueFromRadio.js"></script>
     <script src="../js/additional/renderListToHTML.js"></script>
     <script src="../js/additional/renderItemToHTML.js"></script>
+    <script src="../js/additional/renderCartToHTML.js"></script>
+    <script src="../js/additional/renderTotalSumToHTML.js"></script>
+    <script src="../js/additional/calcTotalSum.js"></script>
+
 </body>
 </html>

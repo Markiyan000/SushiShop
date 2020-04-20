@@ -6,7 +6,7 @@ let listTemplate = (list, name) => {
             <div class="card-inner">
                 <div class="product-photo">
                     <a title=${list[i].name} class="product-link with-object-fit">
-                        <img src="http://localhost:63343/SushiShop/client/images/${list[i].image}" onclick="showOneItem(${list[i].id}, '${name}')" class="product-image" alt="">
+                        <img src="http://localhost:63342/SushiShop/client/images/${list[i].image}" onclick="showOneItem(${list[i].id}, '${name}')" class="product-image" alt="">
                     </a>
                     <div class="product-labels labels-list">
                         <span class="js-label-discount"></span>

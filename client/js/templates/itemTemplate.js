@@ -1,7 +1,7 @@
 let itemTemplate = (item, name) => {
     let result = `
     <div>
-          <img src="http://localhost:63343/SushiShop/client/images/${item.image}" alt="" title="${item.name}" class="product-image">
+          <img src="http://localhost:63342/SushiShop/client/images/${item.image}" alt="" title="${item.name}" class="product-image">
           <div class="product-title on-page"><h1 class="js-product-title">${item.name}</h1></div>
           <div class="product-introtext on-page">
                 <p>

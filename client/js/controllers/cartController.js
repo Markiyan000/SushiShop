@@ -13,3 +13,17 @@ let addToCart = async (name, price) => {
         }
     });
 };
+
+let showCart = async () => {
+    const response = await fetch('http://localhost:3000/api/cart', {
+        method: 'GET'
+    });
+    await renderCartToHTML(response.json());
+};
+
+let deleteItem = async (id) => {
+    await fetch(`http://localhost:3000/api/cart/${id}`, {
+        method: 'DELETE'
+    });
+    await showCart();
+};
