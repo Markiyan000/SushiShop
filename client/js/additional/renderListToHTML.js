@@ -1,8 +1,12 @@
 let renderListToHTML = async (jsonList, name, isFullList) => {
-    const div = document.querySelector('.row');
+    const listDiv = document.querySelector('.row');
     await jsonList.then((data) => {
-        const result = isFullList ? filterTemplate(name) + listTemplate(data, name) : listTemplate(data, name);
+        const result = listTemplate(data, name);
         clearElementsBeforeInserting();
-        div.insertAdjacentHTML('beforeend', result);
+        if (isFullList) {
+            document.getElementById('searchDiv').insertAdjacentHTML('beforeend', searchTemplate(name));
+            document.getElementById('sortDiv').insertAdjacentHTML('beforeend', sortTemplate(name));
+        }
+        listDiv.insertAdjacentHTML('beforeend', result);
     });
 };

@@ -56,3 +56,41 @@
     background: red;
     color: white;
 }
+
+#sortDiv {
+    float: right;
+    width: 200px;
+    color: white;
+}
+
+#submitSort {
+    background-color: white;
+    color: black;
+    border: 2px solid red;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#submitSort:hover {
+    background-color: red;
+    color: white;
+}
+
+#productItem {
+    color: white;
+}
+
+#ingredientsDiv {
+    color: white;
+}
+
+#productPrice {
+    font-size: 20px;
+    color: red;
+}

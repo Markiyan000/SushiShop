@@ -19,6 +19,7 @@ let listTemplate = (list, name) => {
                         </a>
                     </div>
                     <div class="product-introtext"><small><p><span>${list[i].description}</span></p></small></div>
+                    <div id="productPrice">${list[i].price} $</div>
                 </div>
             </div>
         </div>`;

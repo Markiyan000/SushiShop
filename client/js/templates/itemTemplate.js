@@ -25,7 +25,7 @@ let itemTemplate = (item, name) => {
     `;
     if(name === 'sets') {
         result += `
-           <div class="tabs-list product-tabs-list">
+           <div class="tabs-list product-tabs-list" id="ingredientsDiv">
                 <div id="product-characteristics" class="tab-block active ">
                         <div class="editor with-styled-table">
                                 <table class="table properties-table table-bordered table-striped table-hover">
