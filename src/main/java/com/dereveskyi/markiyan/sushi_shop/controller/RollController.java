@@ -35,7 +35,7 @@ public class RollController {
         return new ResponseEntity<>(foundRoll, HttpStatus.OK);
     }
 
-    @DeleteMapping("{rollId}")
+    @DeleteMapping("/{rollId}")
     public ResponseEntity<?> delete(@PathVariable("rollId") String rollId) {
         rollService.delete(Long.parseLong(rollId));
         return new ResponseEntity<>("Roll with ID ---> " + rollId + " <--- was deleted successfully!", HttpStatus.OK);

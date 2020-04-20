@@ -14,8 +14,8 @@ let itemTemplate = (item, name) => {
           </div>
           <div class="buy cell-xl-4 cell-lg-6 cell-sm-4 cell-xs-12">
                 <div class="product-order-variant js-variant-available">
-                    <button class="button button-buy button-primary" type="submit" data-item-add>
-                         <i class="icon button-icon buy-icon ion-ios-cart-outline"></i>
+                    <button class="button button-buy button-primary" type="button" onclick="addToCart('${item.name}', ${item.price})">
+                         <i class="icon button-icon buy-icon ion-ios-cart-outline""></i>
                          <span class="button-text">Add To Cart</span>
                     </button>
                 </div>
