@@ -4,5 +4,6 @@ let clearElementsBeforeInserting = () => {
     document.getElementById('searchDiv').innerHTML = "";
     document.getElementById('sortDiv').innerHTML = "";
     document.getElementById('table_blur').innerHTML = "";
+    document.getElementById('errorDiv').innerHTML = "";
     document.getElementById('totalSum').innerHTML = "";
 };

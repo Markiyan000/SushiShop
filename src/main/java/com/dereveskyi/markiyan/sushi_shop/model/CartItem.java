@@ -18,7 +18,7 @@ public class CartItem {
     @Column(name = "price")
     private Integer price;
 
-    public CartItem () {
+    public CartItem() {
 
     }
 

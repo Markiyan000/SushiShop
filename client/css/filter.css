@@ -105,7 +105,7 @@
     text-align: center;
 }
 
-#totalSum {
+#totalSum, #errorDiv {
     color: white;
     font-size: 30px;
     text-align: center;
