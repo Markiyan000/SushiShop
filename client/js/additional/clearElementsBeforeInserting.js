@@ -6,4 +6,6 @@ let clearElementsBeforeInserting = () => {
     document.getElementById('table_blur').innerHTML = "";
     document.getElementById('errorDiv').innerHTML = "";
     document.getElementById('totalSum').innerHTML = "";
+    document.getElementById('orderDiv').innerHTML = "";
+    document.getElementById('makeOrderButton').innerHTML = "";
 };

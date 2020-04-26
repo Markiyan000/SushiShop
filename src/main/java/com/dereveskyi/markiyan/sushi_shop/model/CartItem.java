@@ -18,6 +18,10 @@ public class CartItem {
     @Column(name = "price")
     private Integer price;
 
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
+
     public CartItem() {
 
     }
@@ -52,5 +56,13 @@ public class CartItem {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 }

@@ -27,3 +27,10 @@ let deleteItem = async (id) => {
     });
     await showCart();
 };
+
+let clearCart = async () => {
+    await fetch(`http://localhost:3000/api/cart/`, {
+        method: 'DELETE'
+    });
+    await showCart();
+};

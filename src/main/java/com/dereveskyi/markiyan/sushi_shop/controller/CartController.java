@@ -31,4 +31,10 @@ public class CartController {
         cartItemService.delete(Long.parseLong(cartItemId));
         return new ResponseEntity<>("Item with ID --->" + cartItemId + " <--- was deleted successfully", HttpStatus.OK);
     }
+
+    @DeleteMapping
+    public ResponseEntity<?> clearCart() {
+        cartItemService.clearCart();
+        return new ResponseEntity<>("Cart is removed successfully!", HttpStatus.OK);
+    }
 }
