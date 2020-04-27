@@ -17,10 +17,11 @@ public interface CartItemRepository extends CrudRepository<CartItem, Long> {
     @Query("update CartItem c set c.order = :order where c.order = null")
     void updateOrderId(@Param("order") Order order);
 
-    @Query("select sum(price) from CartItem c")
+    @Query("select sum(price) from CartItem c where c.order = null")
     Integer getTotalSum();
 
     @Modifying
     @Query("delete  from CartItem c where c.order is null")
     void clearCart();
+
 }

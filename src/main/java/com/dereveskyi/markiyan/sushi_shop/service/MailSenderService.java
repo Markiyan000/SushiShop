@@ -21,7 +21,7 @@ public class MailSenderService {
             String text = "Dear " + user.getName() + " " + user.getSurname() + ", your order will be delivered in " +
                     new Random().nextInt(60) + " minutes!\nTo pay: " + cartItemService.getTotalSum() + " $\nThank you!";
             final String username = "sushishop278@gmail.com";
-            final String password = "sushishop0980529814";
+            final String password = "***********************";
             Properties props = new Properties();
             props.put("mail.smtp.auth", "true");
             props.put("mail.smtp.starttls.enable", "true");

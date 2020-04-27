@@ -1,7 +1,6 @@
 package com.dereveskyi.markiyan.sushi_shop.service;
 
 import com.dereveskyi.markiyan.sushi_shop.dao.OrderRepository;
-import com.dereveskyi.markiyan.sushi_shop.model.CartItem;
 import com.dereveskyi.markiyan.sushi_shop.model.Order;
 import com.dereveskyi.markiyan.sushi_shop.model.User;
 import org.springframework.beans.factory.annotation.Autowired;

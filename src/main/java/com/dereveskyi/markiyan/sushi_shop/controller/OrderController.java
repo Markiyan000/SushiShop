@@ -30,8 +30,8 @@ public class OrderController {
     public ResponseEntity<?> makeOrder(@Valid @RequestBody User user, BindingResult bindingResult) {
         ResponseEntity<?> errorMap = errorValidationService.errorValidate(bindingResult);
         if (errorMap != null) return errorMap;
-        orderService.makeOrder(user);
         mailSenderService.send(user);
+        orderService.makeOrder(user);
         return new ResponseEntity<>("Order is executed!", HttpStatus.CREATED);
     }
 }
